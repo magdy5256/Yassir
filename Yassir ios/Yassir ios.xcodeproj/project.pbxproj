@@ -21,10 +21,10 @@
 		46B7534B2D3243A6006C987B /* CharacterEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B7534A2D3243A6006C987B /* CharacterEndpoint.swift */; };
 		46B7534D2D32448D006C987B /* URLSessionAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B7534C2D32448D006C987B /* URLSessionAPIClient.swift */; };
 		46B7534F2D32474C006C987B /* CharacterServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B7534E2D32474C006C987B /* CharacterServiceProtocol.swift */; };
-		46B753512D3249C8006C987B /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B753502D3249C8006C987B /* CharactersModel.swift */; };
-		46B753532D324B0C006C987B /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B753522D324B0C006C987B /* CharactersViewModel.swift */; };
 		46B753692D3299DB006C987B /* CharacterDetailImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B753682D3299DB006C987B /* CharacterDetailImage.swift */; };
 		46B7536B2D329A23006C987B /* CharacterDetailInnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B7536A2D329A23006C987B /* CharacterDetailInnerView.swift */; };
+		46B753952D32A6A4006C987B /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B753942D32A6A4006C987B /* CharactersViewModel.swift */; };
+		46B753992D32A6C0006C987B /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B753982D32A6C0006C987B /* CharactersModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,10 +43,10 @@
 		46B7534A2D3243A6006C987B /* CharacterEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEndpoint.swift; sourceTree = "<group>"; };
 		46B7534C2D32448D006C987B /* URLSessionAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionAPIClient.swift; sourceTree = "<group>"; };
 		46B7534E2D32474C006C987B /* CharacterServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterServiceProtocol.swift; sourceTree = "<group>"; };
-		46B753502D3249C8006C987B /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
-		46B753522D324B0C006C987B /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
 		46B753682D3299DB006C987B /* CharacterDetailImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailImage.swift; sourceTree = "<group>"; };
 		46B7536A2D329A23006C987B /* CharacterDetailInnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailInnerView.swift; sourceTree = "<group>"; };
+		46B753942D32A6A4006C987B /* CharactersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
+		46B753982D32A6C0006C987B /* CharactersModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,6 @@
 				46B753622D3298DA006C987B /* Shared */,
 				46B753632D329927006C987B /* CharactersList */,
 				46B753662D32999F006C987B /* CharacterDetails */,
-				46B753502D3249C8006C987B /* CharactersModel.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -140,7 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				46B753642D32993D006C987B /* View */,
-				46B753652D329953006C987B /* viewModels */,
+				46B753932D32A6A4006C987B /* View Models */,
+				46B753962D32A6C0006C987B /* Data */,
 			);
 			path = CharactersList;
 			sourceTree = "<group>";
@@ -153,14 +153,6 @@
 				46B753422D3239CB006C987B /* CharactersCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		46B753652D329953006C987B /* viewModels */ = {
-			isa = PBXGroup;
-			children = (
-				46B753522D324B0C006C987B /* CharactersViewModel.swift */,
-			);
-			path = viewModels;
 			sourceTree = "<group>";
 		};
 		46B753662D32999F006C987B /* CharacterDetails */ = {
@@ -179,6 +171,30 @@
 				46B753682D3299DB006C987B /* CharacterDetailImage.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		46B753932D32A6A4006C987B /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				46B753942D32A6A4006C987B /* CharactersViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		46B753962D32A6C0006C987B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				46B753972D32A6C0006C987B /* Remote */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		46B753972D32A6C0006C987B /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				46B753982D32A6C0006C987B /* CharactersModel.swift */,
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46B7532D2D317A73006C987B /* ContentView.swift in Sources */,
+				46B753992D32A6C0006C987B /* CharactersModel.swift in Sources */,
 				46B7534F2D32474C006C987B /* CharacterServiceProtocol.swift in Sources */,
 				46B7536B2D329A23006C987B /* CharacterDetailInnerView.swift in Sources */,
 				46B753452D323A09006C987B /* ImageLoader.swift in Sources */,
@@ -260,10 +277,9 @@
 				46B753432D3239CB006C987B /* CharactersCell.swift in Sources */,
 				46B7534B2D3243A6006C987B /* CharacterEndpoint.swift in Sources */,
 				46B7533D2D32390B006C987B /* CharacterView.swift in Sources */,
+				46B753952D32A6A4006C987B /* CharactersViewModel.swift in Sources */,
 				46B7533B2D323865006C987B /* CharactersList.swift in Sources */,
-				46B753532D324B0C006C987B /* CharactersViewModel.swift in Sources */,
 				46B753492D323B55006C987B /* APIEndpoint.swift in Sources */,
-				46B753512D3249C8006C987B /* CharactersModel.swift in Sources */,
 				46B7534D2D32448D006C987B /* URLSessionAPIClient.swift in Sources */,
 				46B753402D323948006C987B /* CharacterDetailsView.swift in Sources */,
 				46B753692D3299DB006C987B /* CharacterDetailImage.swift in Sources */,
