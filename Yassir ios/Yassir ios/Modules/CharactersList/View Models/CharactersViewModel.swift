@@ -12,9 +12,9 @@ import Combine
 class CharactersViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     let characterService: CharacterServiceProtocol
-    
+
     @Published var characters: [Characters]?
-    
+    @Published var filterData: [String] = ["Alive","Dead","unknown"]
     @Published var isLoading: Bool = false
     @Published var error: NSError?
     init(characterService: CharacterServiceProtocol) {

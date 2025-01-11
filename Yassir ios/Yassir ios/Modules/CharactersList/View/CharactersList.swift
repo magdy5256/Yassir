@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CharactersList: View {
     @ObservedObject private var charactersViewModel = CharactersViewModel(characterService: CharacterService())
-    
+    @State private var selectedFilter: String? = nil
+
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
@@ -18,42 +19,28 @@ struct CharactersList: View {
                     .font(.system(size: 30, weight: .bold))
                 
                 HStack {
-                    Text("Alive")
-                        .multilineTextAlignment(.center)
-                        .font(.system(size: 16, weight: .regular))
-                        .padding(12)
-                        .foregroundColor(Color.black)
-                        .cornerRadius(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(.gray, lineWidth: 1)
-                        )
-                    Text("Dead")
-                        .multilineTextAlignment(.center)
-                        .font(.system(size: 16, weight: .regular))
-                        .padding(12)
-                        .foregroundColor(Color.black)
-                        .cornerRadius(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(.gray, lineWidth: 1)
-                        )
-                    Text("Unknown")
-                        .multilineTextAlignment(.center)
-                        .font(.system(size: 16, weight: .regular))
-                        .padding(12)
-                        .foregroundColor(Color.black)
-                        .cornerRadius(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(.gray, lineWidth: 1)
-                        )
-                }
-                .padding(8)
+                    ForEach(self.charactersViewModel.filterData.indices, id: \.self) { index in
+                        Button(action: {
+                            selectedFilter = self.charactersViewModel.filterData[index]
+
+                        }) {
+                            Text(self.charactersViewModel.filterData[index])
+                                .multilineTextAlignment(.center)
+                                .font(.system(size: 16, weight: .regular))
+                                .padding(12)
+                                .foregroundColor(Color.black)
+                                .cornerRadius(20)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(.gray, lineWidth: 1)
+                                )
+                        }
+                    }
+                }.padding(8)
                 List {
                     Group {
                         if charactersViewModel.characters != nil {
-                            CharacterView(characters: self.charactersViewModel.characters ?? [])
+                            CharacterView(characters: filteredCharacters())
                             
                         } else {
                             LoaderView(isLoading: self.charactersViewModel.isLoading, error: self.charactersViewModel.error) {
@@ -73,5 +60,12 @@ struct CharactersList: View {
             
         }
     }
+    
+    private func filteredCharacters() -> [Characters] {
+          guard let filter = selectedFilter, let characters = charactersViewModel.characters else {
+              return charactersViewModel.characters ?? []
+          }
+          return characters.filter { $0.status == filter }
+      }
 }
 

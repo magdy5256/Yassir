@@ -24,20 +24,13 @@ struct CharacterDetailInnerView: View {
                                 .stroke(.blue, lineWidth: 0)
                         )
                     
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        Text("back")
-                            .multilineTextAlignment(.center)
+                    Button(action: { dismiss() }) {
+                        Text("Back")
                             .font(.system(size: 16, weight: .semibold))
                             .padding()
-                            .foregroundColor(Color.black)
-                            .background(Circle().fill(Color.white))
+                            .foregroundColor(.black)
+                            .background(Circle().fill(.white))
                             .cornerRadius(20)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(.clear, lineWidth: 2)
-                            )
                     }
                     .padding(.top, 40)
                 }
